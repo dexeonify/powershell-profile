@@ -7,7 +7,7 @@ $Xml = Join-Path $Dir "$($File.BaseName).xml"
 $Xopp = Join-Path $Dir "$($File.BaseName).xopp"
 
 Write-Host "Extract xopp (gzipped XML file)" -ForegroundColor Green
-7z.exe e $File -so | Out-File -FilePath $Xml
+7z.exe e $File -so > $Xml
 
 Write-Host "Backup original xopp file" -ForegroundColor Green
 Rename-Item $File $Backup
