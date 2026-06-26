@@ -13,8 +13,8 @@ $categories = @{
     "image" = "avifenc.exe", "cjxl.exe", "cwebp.exe","gifski.exe", "mozjpeg.exe"
     "others" = "croc.exe", "qpdf.exe", "qpdf30.dll"
     "ffmpeg" = "ffmpeg.exe", "ffplay.exe", "ffprobe.exe",
-               "avformat-62.dll", "avutil-60.dll", "avcodec-62.dll", "avdevice-62.dll", "avfilter-11.dll",
-               "postproc-59.dll", "swresample-6.dll", "swscale-9.dll"
+               "avcodec-63.dll", "avfilter-12.dll", "avformat-63.dll", "avutil-61.dll",
+               "avdevice-63.dll", "swresample-7.dll", "swscale-10.dll"
 }
 
 Get-ChildItem -Path * -Include "*.exe", "*.dll" | ForEach-Object {
