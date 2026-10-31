@@ -30,30 +30,6 @@ function prompt {
     return $out
 }
 
-# Search MS Word documents for specific keywords
-function Search-Docx {
-    param ([ValidateSet("BM", "English")]$Path)
-
-    Push-Location "D:\Documents\$Path"
-    uv.exe run "D:\Scripts\search_docx.py"
-    Pop-Location
-}
-
-# Switch between power plans, mostly used to keep the system awake
-function Set-PowerPlan {
-    param ([ValidateSet("Balanced", "HighPerformance")]$Plan)
-
-    if ($Plan -eq "Balanced") {
-        powercfg /SETACTIVE 381b4222-f694-41f0-9685-ff5bb260df2e
-    }
-    elseif ($Plan -eq "HighPerformance") {
-        powercfg /SETACTIVE 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
-    }
-}
-
-# Override system curl binary
-New-Alias -Name curl -Value "C:\Program Files\Git\mingw64\bin\curl.exe"
-
 # Load tab completions
 $CompletionDir = Join-Path $(Split-Path -Parent $PROFILE.CurrentUserAllHosts) "Completions"
 $CompletionCmd = "av1an", "mpv", "rclone", "rustic", "uv", "winget"

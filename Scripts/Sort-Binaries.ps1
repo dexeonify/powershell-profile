@@ -10,7 +10,7 @@ $folders = @{
 
 $categories = @{
     "video" = "aomenc.exe", "av1an.exe", "mediainfo.exe", "SvtAv1EncApp.exe", "vpxenc.exe"
-    "image" = "avifenc.exe", "cjxl.exe", "cwebp.exe","gifski.exe", "mozjpeg.exe"
+    "image" = "avifenc.exe", "cjxl.exe", "cwebp.exe", "gifski.exe", "mozjpeg.exe"
     "others" = "croc.exe", "qpdf.exe", "qpdf30.dll"
     "ffmpeg" = "ffmpeg.exe", "ffplay.exe", "ffprobe.exe",
                "avcodec-63.dll", "avfilter-12.dll", "avformat-63.dll", "avutil-61.dll",
