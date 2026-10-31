@@ -10,8 +10,8 @@ Sort-Binaries
 Write-Host "`n===== Updating mpv..." -ForegroundColor Cyan
 & "D:\Programs\Video\mpv\updater.bat"
 
-Write-Host "`n===== Updating rclone..." -ForegroundColor Cyan
-rclone.exe selfupdate
+Write-Host "`n===== Updating uv..." -ForegroundColor Cyan
+uv.exe self update
 
 Write-Host "`n===== Updating uv tools..." -ForegroundColor Cyan
 uv.exe tool upgrade --all
