@@ -1,7 +1,6 @@
 # Set oh-my-posh theme
-oh-my-posh.exe init pwsh --config "$env:POSH_THEMES_PATH/M365Princess.omp.json" | Invoke-Expression
-# Disable automatic prompt change on activating venv when using oh-my-posh
-$env:VIRTUAL_ENV_DISABLE_PROMPT=1
+oh-my-posh.exe init pwsh --config m365princess | Invoke-Expression
+
 # Enable shell integration
 $Global:OriginalPrompt = $function:Prompt
 function Global:Get-LastExitCode {
