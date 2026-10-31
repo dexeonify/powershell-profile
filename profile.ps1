@@ -2,19 +2,20 @@
 oh-my-posh.exe init pwsh --config m365princess | Invoke-Expression
 
 # Enable shell integration
-$Global:OriginalPrompt = $function:Prompt
-function Global:Get-LastExitCode {
-    if ($? -eq $true) { return 0 }
+$Global:__OriginalPrompt = $function:Prompt
+function Global:__Terminal-Get-LastExitCode {
+    if ($? -eq $True) { return 0 }
     $LastHistoryEntry = $(Get-History -Count 1)
     $IsPowerShellError = $Error[0].InvocationInfo.HistoryId -eq $LastHistoryEntry.Id
     if ($IsPowerShellError) { return -1 }
     return $LastExitCode
 }
+
 function prompt {
-    $gle = $(Get-LastExitCode);
+    $gle = $(__Terminal-Get-LastExitCode);
     $LastHistoryEntry = $(Get-History -Count 1)
-    if ($Global:LastHistoryId -ne -1) {
-        if ($LastHistoryEntry.Id -eq $Global:LastHistoryId) {
+    if ($Global:__LastHistoryId -ne -1) {
+        if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
             $out += "`e]133;D`a"
         } else {
             $out += "`e]133;D;$gle`a"
@@ -23,9 +24,9 @@ function prompt {
     $loc = $($executionContext.SessionState.Path.CurrentLocation);
     $out += "`e]133;A$([char]07)";
     $out += "`e]9;9;`"$loc`"$([char]07)";
-    $out += $Global:OriginalPrompt.Invoke(); # <-- This line adds the original prompt back
+    $out += $Global:__OriginalPrompt.Invoke(); # <-- This line adds the original prompt back
     $out += "`e]133;B$([char]07)";
-    $Global:LastHistoryId = $LastHistoryEntry.Id
+    $Global:__LastHistoryId = $LastHistoryEntry.Id
     return $out
 }
 
